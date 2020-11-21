@@ -1,8 +1,8 @@
-package com.leocth.unweaver.v0.impl.registries;
+package com.leocth.unweaver.v0.impl.registries.blocks.enums;
 
 import com.leocth.unweaver.v0.api.enums.blocks.enums.Instrument;
 import com.leocth.unweaver.v0.api.factories.InstrumentFactory;
-import com.leocth.unweaver.v0.api.registries.InstrumentFactoryRegistry;
+import com.leocth.unweaver.v0.api.registries.blocks.enums.InstrumentFactoryRegistry;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;

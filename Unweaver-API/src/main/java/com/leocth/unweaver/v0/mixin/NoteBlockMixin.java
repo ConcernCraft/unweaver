@@ -1,12 +1,11 @@
 package com.leocth.unweaver.v0.mixin;
 
 import com.leocth.unweaver.v0.api.enums.blocks.enums.Instrument;
-import com.leocth.unweaver.v0.api.registries.InstrumentFactoryRegistry;
+import com.leocth.unweaver.v0.api.registries.blocks.enums.InstrumentFactoryRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.NoteBlock;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
