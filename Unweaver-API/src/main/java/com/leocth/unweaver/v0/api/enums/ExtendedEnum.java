@@ -1,10 +1,9 @@
-package com.leocth.unweaver.v0.api;
+package com.leocth.unweaver.v0.api.enums;
 
-import com.leocth.unweaver.v0.impl.util.UseActionImpl;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Trait for "extended" enums. (e.g. {@link UseActionImpl})
+ * Trait for "extended" enums. (e.g. {@link com.leocth.unweaver.v0.api.enums.util.UseAction})
  * @param <T> the original enum type
  */
 public interface ExtendedEnum<T extends Enum<?>> {
@@ -14,4 +13,11 @@ public interface ExtendedEnum<T extends Enum<?>> {
      * @return the vanilla equivalent
      */
     @Nullable T getVanilla();
+
+    /**
+     * @return whether the extended enum is custom (i.e. does not have a vanilla counterpart).
+     */
+    default boolean isCustom() {
+        return getVanilla() == null;
+    }
 }

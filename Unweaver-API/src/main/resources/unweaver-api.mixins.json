@@ -4,8 +4,12 @@
     "package": "com.leocth.unweaver.v0.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
+        "ItemStackMixin",
+        "LivingEntityMixin",
+        "NoteBlockMixin"
     ],
     "client": [
+        "PlayerEntityRendererMixin"
     ],
     "injectors": {
         "defaultRequire": 1
