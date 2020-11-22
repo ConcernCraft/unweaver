@@ -7,10 +7,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 @FunctionalInterface
 public interface InstrumentFactory {
     InstrumentFactory VANILLA = (state, world, pos) ->
-            InstrumentImpl.Vanilla.get(net.minecraft.block.enums.Instrument.fromBlockState(state));
+            Optional.ofNullable(
+                InstrumentImpl.VANILLA.get(
+                    net.minecraft.block.enums.Instrument.fromBlockState(world.getBlockState(pos.down()))
+                )
+            );
 
-    @Nullable Instrument get(BlockState state, World world, BlockPos pos);
+    Optional<Instrument> get(BlockState state, World world, BlockPos pos);
 }

@@ -1,18 +1,32 @@
 package com.leocth.unweaver.v0.impl.enums.blocks.enums;
 
 import com.leocth.unweaver.v0.api.enums.blocks.enums.Instrument;
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import com.leocth.unweaver.v0.impl.enums.AbstractExtendedEnum;
+import com.leocth.unweaver.v0.impl.enums.AbstractVanillaFactory;
 import net.minecraft.sound.SoundEvent;
-import org.jetbrains.annotations.Nullable;
 
-public class InstrumentImpl implements Instrument {
+public class InstrumentImpl extends AbstractExtendedEnum<net.minecraft.block.enums.Instrument> implements Instrument {
+
+    public static final AbstractVanillaFactory<net.minecraft.block.enums.Instrument, InstrumentImpl> VANILLA
+            = new AbstractVanillaFactory<net.minecraft.block.enums.Instrument, InstrumentImpl>() {
+        @Override
+        protected InstrumentImpl createCustom(net.minecraft.block.enums.Instrument vanilla) {
+            return new InstrumentImpl(vanilla);
+        }
+    };
 
     private final String name;
     private final SoundEvent sound;
 
     public InstrumentImpl(String name, SoundEvent sound) {
+        super(null);
         this.name = name;
         this.sound = sound;
+    }
+    public InstrumentImpl(net.minecraft.block.enums.Instrument vanilla) {
+        super(vanilla);
+        this.name = vanilla.name();
+        this.sound = vanilla.getSound();
     }
 
     @Override
@@ -24,40 +38,4 @@ public class InstrumentImpl implements Instrument {
     public String asString() {
         return name;
     }
-
-    @Nullable
-    @Override
-    public net.minecraft.block.enums.Instrument getVanilla() { return null; }
-
-    public static class Vanilla implements Instrument {
-
-        private static final Object2ObjectOpenHashMap<net.minecraft.block.enums.Instrument, Vanilla> vanillaCache
-                = new Object2ObjectOpenHashMap<>();
-
-        private final net.minecraft.block.enums.Instrument vanilla;
-
-        private Vanilla(net.minecraft.block.enums.Instrument vanilla) {
-            this.vanilla = vanilla;
-        }
-
-        @Override
-        public SoundEvent getSound() { return vanilla.getSound(); }
-
-        @Nullable
-        @Override
-        public net.minecraft.block.enums.Instrument getVanilla() { return vanilla; }
-
-        @Override
-        public String asString() { return vanilla.asString(); }
-
-        public static Vanilla get(net.minecraft.block.enums.Instrument vanilla) {
-            if (vanillaCache.containsKey(vanilla))
-                return vanillaCache.get(vanilla);
-            Vanilla impl = new Vanilla(vanilla);
-            vanillaCache.put(vanilla, impl);
-            return impl;
-        }
-    }
-
-
 }

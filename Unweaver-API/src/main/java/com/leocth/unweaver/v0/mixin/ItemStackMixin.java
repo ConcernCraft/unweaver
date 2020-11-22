@@ -1,7 +1,7 @@
 package com.leocth.unweaver.v0.mixin;
 
 import com.leocth.unweaver.v0.api.enums.util.UseAction;
-import com.leocth.unweaver.v0.impl.enums.util.VanillaUseActionImpl;
+import com.leocth.unweaver.v0.impl.enums.util.UseActionImpl;
 import com.leocth.unweaver.v0.impl.traits.ItemStackTrait;
 import com.leocth.unweaver.v0.api.containers.util.UseActionContainer;
 import net.minecraft.item.Item;
@@ -18,6 +18,6 @@ public class ItemStackMixin implements ItemStackTrait {
         if (item instanceof UseActionContainer)
             return ((UseActionContainer) item).getCustomUseAction(dis);
         else
-            return VanillaUseActionImpl.get(dis.getUseAction());
+            return UseActionImpl.VANILLA.get(dis.getUseAction());
     }
 }

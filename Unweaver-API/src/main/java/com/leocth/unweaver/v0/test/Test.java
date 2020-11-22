@@ -11,8 +11,12 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
+import java.util.Optional;
+
 public class Test implements ModInitializer {
+
     public static final String MODID = "unweaver";
+
     public static final Instrument MY_INSTRUMENT = Instrument.create("my_instrument", SoundEvents.BLOCK_BELL_USE);
 
     @Override
@@ -22,9 +26,9 @@ public class Test implements ModInitializer {
             // match/when exprs when
             BlockState beneath = world.getBlockState(pos.down());
             if (beneath.getBlock() == Blocks.BELL) {
-                return MY_INSTRUMENT;
+                return Optional.of(MY_INSTRUMENT);
             }
-            return null;
+            return Optional.empty();
         });
     }
 
