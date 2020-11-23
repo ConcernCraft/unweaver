@@ -1,6 +1,4 @@
-package com.leocth.unweaver.v0.impl.enums;
-
-import com.leocth.unweaver.v0.api.enums.ExtendedEnum;
+package com.leocth.unweaver.v0.api.enums;
 
 @FunctionalInterface
 public interface VanillaFactory<Vanilla extends Enum<Vanilla>, Custom extends ExtendedEnum<Vanilla>> {

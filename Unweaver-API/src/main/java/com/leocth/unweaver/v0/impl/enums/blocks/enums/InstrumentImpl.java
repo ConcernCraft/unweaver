@@ -19,7 +19,7 @@ public class InstrumentImpl extends AbstractExtendedEnum<net.minecraft.block.enu
         this.sound = sound;
     }
 
-    private InstrumentImpl(net.minecraft.block.enums.Instrument vanilla) {
+    public InstrumentImpl(net.minecraft.block.enums.Instrument vanilla) {
         super(vanilla);
         this.name = vanilla.name();
         this.sound = vanilla.getSound();

@@ -1,6 +1,7 @@
 package com.leocth.unweaver.v0.impl.enums;
 
 import com.leocth.unweaver.v0.api.enums.ExtendedEnum;
+import com.leocth.unweaver.v0.api.enums.VanillaFactory;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 
 import java.util.Map;
