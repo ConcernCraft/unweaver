@@ -4,20 +4,12 @@ import com.leocth.unweaver.v0.api.factories.ArmPoseFactory;
 import com.leocth.unweaver.v0.api.callbacks.ConsumingItemCallback;
 import com.leocth.unweaver.v0.api.enums.util.UseAction;
 import com.leocth.unweaver.v0.impl.enums.AbstractExtendedEnum;
-import com.leocth.unweaver.v0.impl.enums.AbstractVanillaFactory;
-import com.leocth.unweaver.v0.impl.enums.blocks.enums.InstrumentImpl;
-import net.minecraft.block.enums.Instrument;
-import org.jetbrains.annotations.Nullable;
+import com.leocth.unweaver.v0.impl.enums.CachedVanillaFactory;
 
 public class UseActionImpl extends AbstractExtendedEnum<net.minecraft.util.UseAction> implements UseAction {
 
-    public static final AbstractVanillaFactory<net.minecraft.util.UseAction, UseActionImpl> VANILLA
-            = new AbstractVanillaFactory<net.minecraft.util.UseAction, UseActionImpl>() {
-        @Override
-        protected UseActionImpl createCustom(net.minecraft.util.UseAction vanilla) {
-            return new UseActionImpl(vanilla);
-        }
-    };
+    public static final CachedVanillaFactory<net.minecraft.util.UseAction, UseActionImpl> VANILLA
+            = new CachedVanillaFactory<>(UseActionImpl::new);
 
     private final ArmPoseFactory armPoseContext;
     private final ConsumingItemCallback consumptionEffectSpawner;

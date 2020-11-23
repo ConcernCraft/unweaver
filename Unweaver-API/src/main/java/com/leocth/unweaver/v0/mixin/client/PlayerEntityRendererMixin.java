@@ -1,4 +1,4 @@
-package com.leocth.unweaver.v0.mixin;
+package com.leocth.unweaver.v0.mixin.client;
 
 import com.leocth.unweaver.v0.api.factories.ArmPoseFactory;
 import com.leocth.unweaver.v0.api.enums.util.UseAction;

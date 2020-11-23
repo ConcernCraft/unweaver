@@ -2,18 +2,13 @@ package com.leocth.unweaver.v0.impl.enums.blocks.enums;
 
 import com.leocth.unweaver.v0.api.enums.blocks.enums.Instrument;
 import com.leocth.unweaver.v0.impl.enums.AbstractExtendedEnum;
-import com.leocth.unweaver.v0.impl.enums.AbstractVanillaFactory;
+import com.leocth.unweaver.v0.impl.enums.CachedVanillaFactory;
 import net.minecraft.sound.SoundEvent;
 
 public class InstrumentImpl extends AbstractExtendedEnum<net.minecraft.block.enums.Instrument> implements Instrument {
 
-    public static final AbstractVanillaFactory<net.minecraft.block.enums.Instrument, InstrumentImpl> VANILLA
-            = new AbstractVanillaFactory<net.minecraft.block.enums.Instrument, InstrumentImpl>() {
-        @Override
-        protected InstrumentImpl createCustom(net.minecraft.block.enums.Instrument vanilla) {
-            return new InstrumentImpl(vanilla);
-        }
-    };
+    public static final CachedVanillaFactory<net.minecraft.block.enums.Instrument, InstrumentImpl> VANILLA
+            = new CachedVanillaFactory<>(InstrumentImpl::new);
 
     private final String name;
     private final SoundEvent sound;
@@ -23,7 +18,8 @@ public class InstrumentImpl extends AbstractExtendedEnum<net.minecraft.block.enu
         this.name = name;
         this.sound = sound;
     }
-    public InstrumentImpl(net.minecraft.block.enums.Instrument vanilla) {
+
+    private InstrumentImpl(net.minecraft.block.enums.Instrument vanilla) {
         super(vanilla);
         this.name = vanilla.name();
         this.sound = vanilla.getSound();
