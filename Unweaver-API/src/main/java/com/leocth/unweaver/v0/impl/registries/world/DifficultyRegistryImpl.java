@@ -15,6 +15,13 @@ public class DifficultyRegistryImpl implements DifficultyRegistry {
     private final Object2ObjectArrayMap<Identifier, Difficulty> factories
             = new Object2ObjectArrayMap<>();
 
+    public DifficultyRegistryImpl() {
+        this.register(Difficulty.PEACEFUL);
+        this.register(Difficulty.EASY);
+        this.register(Difficulty.NORMAL);
+        this.register(Difficulty.HARD);
+    }
+
     @Override
     public void register(Difficulty difficulty) {
         factories.put(difficulty.getId(), difficulty);

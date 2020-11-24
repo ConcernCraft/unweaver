@@ -1,11 +1,13 @@
 package com.leocth.unweaver.v0.api.enums.util;
 
 import com.leocth.unweaver.v0.api.factories.ArmPoseFactory;
-import com.leocth.unweaver.v0.api.callbacks.ConsumingItemCallback;
+import com.leocth.unweaver.v0.api.callbacks.ConsumeItemCallback;
 import com.leocth.unweaver.v0.api.enums.ExtendedEnum;
 import com.leocth.unweaver.v0.impl.enums.CachedVanillaFactory;
 import com.leocth.unweaver.v0.api.enums.VanillaFactory;
 import com.leocth.unweaver.v0.impl.enums.util.UseActionImpl;
+import com.leocth.unweaver.v0.impl.enums.world.DifficultyImpl;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 public interface UseAction extends ExtendedEnum<net.minecraft.util.UseAction> {
@@ -23,24 +25,17 @@ public interface UseAction extends ExtendedEnum<net.minecraft.util.UseAction> {
     UseAction SPYGLASS = VANILLA.get(net.minecraft.util.UseAction.SPYGLASS);
 
     @Nullable ArmPoseFactory getArmPoseFactory();
-    @Nullable ConsumingItemCallback getConsumptionCallback();
+    @Nullable ConsumeItemCallback getConsumptionCallback();
 
-    class Builder {
-        public ArmPoseFactory armPoseFactory;
-        public ConsumingItemCallback consumptionCallback;
+    interface Builder {
 
-        public Builder armPose(ArmPoseFactory context) {
-            this.armPoseFactory = context;
-            return this;
-        }
+        Builder armPose(ArmPoseFactory context);
+        Builder onConsumeItem(ConsumeItemCallback callback);
 
-        public Builder consumptionEffectSpawner(ConsumingItemCallback callback) {
-            this.consumptionCallback = callback;
-            return this;
-        }
+        UseAction build();
 
-        public UseAction build() {
-            return new UseActionImpl(this);
+        static Builder create() {
+            return new UseActionImpl.Builder();
         }
     }
 

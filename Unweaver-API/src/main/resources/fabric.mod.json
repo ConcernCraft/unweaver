@@ -14,6 +14,14 @@
     "entrypoints": {
         "main": [
             "com.leocth.unweaver.v0.test.Test"
+        ],
+        "cardinal-components-level": [
+            "com.leocth.unweaver.v0.impl.cca.Components"
+        ]
+    },
+    "custom": {
+        "cardinal-components": [
+            "unweaver:difficulty"
         ]
     },
     "mixins": [

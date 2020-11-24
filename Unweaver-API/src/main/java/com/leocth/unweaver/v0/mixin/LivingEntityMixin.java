@@ -1,6 +1,6 @@
 package com.leocth.unweaver.v0.mixin;
 
-import com.leocth.unweaver.v0.api.callbacks.ConsumingItemCallback;
+import com.leocth.unweaver.v0.api.callbacks.ConsumeItemCallback;
 import com.leocth.unweaver.v0.api.enums.util.UseAction;
 import com.leocth.unweaver.v0.impl.Opener;
 import net.minecraft.entity.Entity;
@@ -23,7 +23,7 @@ public abstract class LivingEntityMixin extends Entity {
     protected void spawnConsumptionEffects(ItemStack stack, int particleCount, CallbackInfo ci) {
         UseAction useAction = Opener.open(stack).getUseAction();
         if (useAction.isCustom()) {
-            ConsumingItemCallback callback = useAction.getConsumptionCallback();
+            ConsumeItemCallback callback = useAction.getConsumptionCallback();
             if (callback != null) {
                 callback.call((LivingEntity)(Object)this, stack, particleCount);
                 ci.cancel();

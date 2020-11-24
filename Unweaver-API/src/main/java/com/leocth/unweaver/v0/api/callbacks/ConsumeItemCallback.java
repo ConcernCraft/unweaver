@@ -5,11 +5,11 @@ import net.minecraft.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 @FunctionalInterface
-public interface ConsumingItemCallback {
+public interface ConsumeItemCallback {
 
     void call(@NotNull LivingEntity entity, ItemStack stack, int particleCount);
 
-    static ConsumingItemCallback whenUsing(@NotNull ConsumingItemCallback callback) {
+    static ConsumeItemCallback whenUsing(@NotNull ConsumeItemCallback callback) {
         return (entity, stack, particleCount) -> {
             if (isUsingItem(entity, stack))
                 callback.call(entity, stack, particleCount);
