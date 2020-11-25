@@ -8,13 +8,20 @@ import com.leocth.unweaver.v0.api.enums.VanillaFactory;
 import com.leocth.unweaver.v0.impl.enums.util.UseActionImpl;
 import org.jetbrains.annotations.Nullable;
 
+/**
+ * A custom use action.
+ *
+ * @see net.minecraft.util.UseAction
+ * @author leocth
+ * @since 0.1.0
+ */
 public interface UseAction extends ExtendedEnum<net.minecraft.util.UseAction> {
 
     VanillaFactory<net.minecraft.util.UseAction, UseAction> VANILLA
             = new CachedVanillaFactory<>(UseActionImpl::new);
 
     @Nullable ArmPoseFactory getArmPoseFactory();
-    @Nullable ConsumeItemCallback getConsumptionCallback();
+    @Nullable ConsumeItemCallback getConsumeItemCallback();
 
     interface Builder {
 

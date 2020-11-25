@@ -23,7 +23,7 @@ public abstract class LivingEntityMixin extends Entity {
     protected void spawnConsumptionEffects(ItemStack stack, int particleCount, CallbackInfo ci) {
         UseAction useAction = Opener.open(stack).getUseAction();
         if (useAction.isCustom()) {
-            ConsumeItemCallback callback = useAction.getConsumptionCallback();
+            ConsumeItemCallback callback = useAction.getConsumeItemCallback();
             if (callback != null) {
                 callback.call((LivingEntity)(Object)this, stack, particleCount);
                 ci.cancel();

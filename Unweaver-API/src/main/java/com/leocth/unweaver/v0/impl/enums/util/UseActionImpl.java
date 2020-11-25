@@ -8,18 +8,18 @@ import com.leocth.unweaver.v0.impl.enums.AbstractExtendedEnum;
 public class UseActionImpl extends AbstractExtendedEnum<net.minecraft.util.UseAction> implements UseAction {
 
     private final ArmPoseFactory armPoseContext;
-    private final ConsumeItemCallback consumptionEffectSpawner;
+    private final ConsumeItemCallback consumeItemCallback;
 
     public UseActionImpl(Builder builder) {
         super(null);
         this.armPoseContext = builder.armPoseFactory;
-        this.consumptionEffectSpawner = builder.consumeItemCallback;
+        this.consumeItemCallback = builder.consumeItemCallback;
     }
 
     public UseActionImpl(net.minecraft.util.UseAction vanilla) {
         super(vanilla);
         this.armPoseContext = null;
-        this.consumptionEffectSpawner = null;
+        this.consumeItemCallback = null;
     }
 
     @Override
@@ -28,8 +28,8 @@ public class UseActionImpl extends AbstractExtendedEnum<net.minecraft.util.UseAc
     }
 
     @Override
-    public ConsumeItemCallback getConsumptionCallback() {
-        return consumptionEffectSpawner;
+    public ConsumeItemCallback getConsumeItemCallback() {
+        return consumeItemCallback;
     }
 
     public static class Builder implements UseAction.Builder {

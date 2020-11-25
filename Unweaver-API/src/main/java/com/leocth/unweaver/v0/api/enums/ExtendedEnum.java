@@ -3,8 +3,11 @@ package com.leocth.unweaver.v0.api.enums;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * Trait for "extended" enums. (e.g. {@link com.leocth.unweaver.v0.api.enums.util.UseAction})
+ * Interface for "extended" enums. (e.g. {@link com.leocth.unweaver.v0.api.enums.util.UseAction})
+ *
  * @param <T> the original enum type
+ * @author leocth
+ * @since 0.1.0
  */
 public interface ExtendedEnum<T extends Enum<T>> {
     /**

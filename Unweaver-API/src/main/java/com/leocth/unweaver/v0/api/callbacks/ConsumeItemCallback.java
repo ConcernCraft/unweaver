@@ -4,6 +4,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ *
+ * @author leocth
+ * @since 0.1.0
+ */
 @FunctionalInterface
 public interface ConsumeItemCallback {
 

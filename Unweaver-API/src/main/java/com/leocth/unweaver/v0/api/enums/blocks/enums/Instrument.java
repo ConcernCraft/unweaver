@@ -9,6 +9,14 @@ import com.leocth.unweaver.v0.impl.enums.util.UseActionImpl;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.StringIdentifiable;
 
+/**
+ * A custom instrument for note blocks.
+ *
+ * @see net.minecraft.block.enums.Instrument
+ * @see com.leocth.unweaver.v0.api.registries.blocks.enums.InstrumentFactoryRegistry
+ * @author leocth
+ * @since 0.1.0
+ */
 public interface Instrument extends ExtendedEnum<net.minecraft.block.enums.Instrument>, StringIdentifiable {
 
     VanillaFactory<net.minecraft.block.enums.Instrument, Instrument> VANILLA

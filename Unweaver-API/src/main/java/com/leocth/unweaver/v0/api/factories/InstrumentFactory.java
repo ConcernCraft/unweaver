@@ -9,8 +9,18 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
+/**
+ * Factory type that returns a {@link Instrument} with context.
+ *
+ * @author leocth
+ * @since 0.1.0
+ */
 @FunctionalInterface
 public interface InstrumentFactory {
+
+    /**
+     * A fallback {@link InstrumentFactory} that returns vanilla instruments based on the block beneath the note block.
+     */
     InstrumentFactory VANILLA = (state, world, pos) ->
             Optional.ofNullable(
                 InstrumentImpl.VANILLA.get(
