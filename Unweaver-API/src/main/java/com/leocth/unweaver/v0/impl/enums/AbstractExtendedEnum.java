@@ -1,7 +1,6 @@
 package com.leocth.unweaver.v0.impl.enums;
 
 import com.leocth.unweaver.v0.api.enums.ExtendedEnum;
-import com.leocth.unweaver.v0.impl.enums.world.DifficultyImpl;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractExtendedEnum<T extends Enum<T>> implements ExtendedEnum<T> {

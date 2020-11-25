@@ -3,9 +3,7 @@ package com.leocth.unweaver.v0.test;
 import com.leocth.unweaver.v0.api.callbacks.ConsumeItemCallback;
 import com.leocth.unweaver.v0.api.enums.blocks.enums.Instrument;
 import com.leocth.unweaver.v0.api.enums.util.UseAction;
-import com.leocth.unweaver.v0.api.enums.world.Difficulty;
 import com.leocth.unweaver.v0.api.registries.blocks.enums.InstrumentFactoryRegistry;
-import com.leocth.unweaver.v0.api.registries.world.DifficultyRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -33,12 +31,6 @@ public class Test implements ModInitializer {
 
     public static final Instrument MY_INSTRUMENT = Instrument.create("my_instrument", SoundEvents.BLOCK_BELL_USE);
 
-    // tehc - you want it; i made it (peaceful w/o hunger generation thank shnup)
-    public static final Difficulty ASIE
-            = Difficulty.Builder.create(id("asie"))
-
-                .build();
-
     @Override
     public void onInitialize() {
 
@@ -52,8 +44,6 @@ public class Test implements ModInitializer {
             }
             return Optional.empty();
         });
-
-        DifficultyRegistry.INSTANCE.register(ASIE);
 
     }
 

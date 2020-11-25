@@ -11,7 +11,7 @@ import net.minecraft.util.StringIdentifiable;
 
 public interface Instrument extends ExtendedEnum<net.minecraft.block.enums.Instrument>, StringIdentifiable {
 
-    VanillaFactory<net.minecraft.block.enums.Instrument, InstrumentImpl> VANILLA
+    VanillaFactory<net.minecraft.block.enums.Instrument, Instrument> VANILLA
             = new CachedVanillaFactory<>(InstrumentImpl::new);
 
     Instrument HARP           = VANILLA.get(net.minecraft.block.enums.Instrument.HARP);

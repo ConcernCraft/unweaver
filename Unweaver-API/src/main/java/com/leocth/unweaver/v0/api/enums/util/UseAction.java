@@ -6,8 +6,6 @@ import com.leocth.unweaver.v0.api.enums.ExtendedEnum;
 import com.leocth.unweaver.v0.impl.enums.CachedVanillaFactory;
 import com.leocth.unweaver.v0.api.enums.VanillaFactory;
 import com.leocth.unweaver.v0.impl.enums.util.UseActionImpl;
-import com.leocth.unweaver.v0.impl.enums.world.DifficultyImpl;
-import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 public interface UseAction extends ExtendedEnum<net.minecraft.util.UseAction> {
