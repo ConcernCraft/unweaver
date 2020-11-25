@@ -17,4 +17,5 @@ public interface InstrumentFactoryRegistry {
 
     Optional<Instrument> get(BlockState state, World world, BlockPos pos);
 
+    Instrument getOrDefault(BlockState state, World world, BlockPos pos);
 }

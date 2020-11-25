@@ -3,6 +3,7 @@ package com.leocth.unweaver.v0.impl.registries.blocks.enums;
 import com.leocth.unweaver.v0.api.enums.blocks.enums.Instrument;
 import com.leocth.unweaver.v0.api.factories.InstrumentFactory;
 import com.leocth.unweaver.v0.api.registries.blocks.enums.InstrumentFactoryRegistry;
+import com.leocth.unweaver.v0.impl.enums.blocks.enums.InstrumentImpl;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 public class InstrumentFactoryRegistryImpl implements InstrumentFactoryRegistry {
 
+    private static final Instrument DEFAULT = Instrument.VANILLA.get(net.minecraft.block.enums.Instrument.HARP);
     private final ObjectArrayList<InstrumentFactory> factories = new ObjectArrayList<>();
 
     public void register(InstrumentFactory factory) {
@@ -29,5 +31,10 @@ public class InstrumentFactoryRegistryImpl implements InstrumentFactoryRegistry 
                 .orElseGet(                                                 // if no dice then use the vanilla fallback
                     () -> InstrumentFactory.VANILLA.get(state, world, pos)  // (which may or may not exist)
                 );
+    }
+
+    @Override
+    public Instrument getOrDefault(BlockState state, World world, BlockPos pos) {
+        return this.get(state, world, pos).orElse(DEFAULT);
     }
 }

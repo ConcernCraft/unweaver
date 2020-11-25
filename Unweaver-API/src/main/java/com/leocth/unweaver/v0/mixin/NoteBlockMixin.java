@@ -30,6 +30,6 @@ public class NoteBlockMixin extends Block {
             BlockState state
     ) {
         // cant use ModifyArg here cos we need to capture onSyncedBlockEvent's args
-        self.playSound(player, pos, InstrumentFactoryRegistry.INSTANCE.get(state, self, pos).orElse(Instrument.HARP).getSound(), category, volume, pitch);
+        self.playSound(player, pos, InstrumentFactoryRegistry.INSTANCE.getOrDefault(state, self, pos).getSound(), category, volume, pitch);
     }
 }
