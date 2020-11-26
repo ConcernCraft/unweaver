@@ -2,10 +2,8 @@ package com.leocth.unweaver.v0.api.enums.blocks.enums;
 
 import com.leocth.unweaver.v0.api.enums.ExtendedEnum;
 import com.leocth.unweaver.v0.api.enums.VanillaFactory;
-import com.leocth.unweaver.v0.api.enums.util.UseAction;
 import com.leocth.unweaver.v0.impl.enums.CachedVanillaFactory;
 import com.leocth.unweaver.v0.impl.enums.blocks.enums.InstrumentImpl;
-import com.leocth.unweaver.v0.impl.enums.util.UseActionImpl;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.StringIdentifiable;
 

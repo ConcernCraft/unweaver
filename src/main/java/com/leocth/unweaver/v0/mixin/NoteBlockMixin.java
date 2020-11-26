@@ -1,6 +1,5 @@
 package com.leocth.unweaver.v0.mixin;
 
-import com.leocth.unweaver.v0.api.enums.blocks.enums.Instrument;
 import com.leocth.unweaver.v0.api.registries.blocks.enums.InstrumentFactoryRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

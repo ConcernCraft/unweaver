@@ -1,7 +1,6 @@
 package com.leocth.unweaver.v0.impl;
 
 import com.leocth.unweaver.v0.impl.traits.ItemStackTrait;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.item.ItemStack;
 
 /**
