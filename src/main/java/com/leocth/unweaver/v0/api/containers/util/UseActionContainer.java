@@ -1,15 +1,20 @@
 package com.leocth.unweaver.v0.api.containers.util;
 
-import com.leocth.unweaver.v0.api.enums.util.UseAction;
-import net.minecraft.item.ItemStack;
+import com.leocth.unweaver.v0.api.callbacks.ConsumeItemCallback;
+import com.leocth.unweaver.v0.api.factories.ArmPoseFactory;
+import org.jetbrains.annotations.Nullable;
 
 /**
- * Items inheriting from this interface will use a custom {@link UseAction} instead of the hardcoded
- * scenarios/conditions defined in vanilla.
+ * {@link net.minecraft.item.Item}s inheriting from this interface will use override
+ * the arm pose and use effects defined and fixed in place in vanilla via {@link net.minecraft.util.UseAction}.
  *
  * @author leocth
  * @since 0.1.0
  */
 public interface UseActionContainer {
-    UseAction getCustomUseAction(ItemStack stack);
+
+    @Nullable ArmPoseFactory getArmPoseFactory();
+
+    @Nullable ConsumeItemCallback getConsumeItemCallback();
+
 }

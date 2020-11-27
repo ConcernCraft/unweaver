@@ -1,13 +1,13 @@
 package com.leocth.unweaver.v0.mixin.client;
 
+import com.leocth.unweaver.v0.api.containers.util.UseActionContainer;
 import com.leocth.unweaver.v0.api.factories.ArmPoseFactory;
-import com.leocth.unweaver.v0.api.enums.util.UseAction;
-import com.leocth.unweaver.v0.impl.Opener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,9 +28,9 @@ public class PlayerEntityRendererMixin {
             cancellable = true
     )
     private static void getArmPose(AbstractClientPlayerEntity player, Hand hand, CallbackInfoReturnable<BipedEntityModel.ArmPose> cir, ItemStack stack) {
-        UseAction useAction = Opener.open(stack).getUseAction();
-        if (useAction.isCustom()) {
-            ArmPoseFactory factory = useAction.getArmPoseFactory();
+        Item item = stack.getItem();
+        if (item instanceof UseActionContainer) {
+            ArmPoseFactory factory = ((UseActionContainer) item).getArmPoseFactory();
             if (factory != null)
                 cir.setReturnValue(factory.getArmPose(player, hand, stack));
         }
