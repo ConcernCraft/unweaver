@@ -2,7 +2,7 @@ package com.leocth.unweaver.v0.impl.enums;
 
 import com.leocth.unweaver.v0.api.enums.ExtendedEnum;
 import com.leocth.unweaver.v0.api.enums.VanillaFactory;
-import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.objects.Reference2ReferenceArrayMap;
 
 import java.util.Map;
 import java.util.function.Function;
@@ -27,6 +27,6 @@ public class CachedVanillaFactory<Vanilla extends Enum<Vanilla>, Custom extends 
     }
 
     protected Map<Vanilla, Custom> createVanillaCache() {
-        return new Object2ObjectOpenHashMap<>();
+        return new Reference2ReferenceArrayMap<>();
     }
 }
