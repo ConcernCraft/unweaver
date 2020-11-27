@@ -23,7 +23,7 @@ public class TestItem extends Item implements UseActionContainer {
     public @Nullable ConsumeItemCallback getConsumeItemCallback() {
         return ConsumeItemCallback.whenUsing(
                 (entity, stack, particleCount) ->
-                        entity.playSound(SoundEvents.ENTITY_PLAYER_SPLASH, 0.5F, entity.world.random.nextFloat() * 0.1F + 0.9F)
+                        entity.playSound(SoundEvents.ENTITY_PLAYER_SPLASH, 0.5F, 0.1f)
         );
     }
 }

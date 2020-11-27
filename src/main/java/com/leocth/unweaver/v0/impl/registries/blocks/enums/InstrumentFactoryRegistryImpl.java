@@ -7,6 +7,7 @@ import it.unimi.dsi.fastutil.objects.ReferenceArrayList;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
@@ -15,8 +16,7 @@ public class InstrumentFactoryRegistryImpl implements InstrumentFactoryRegistry 
     private static final Instrument DEFAULT = Instrument.VANILLA.get(net.minecraft.block.enums.Instrument.HARP);
     private final ReferenceArrayList<InstrumentFactory> factories = new ReferenceArrayList<>();
 
-    public void register(InstrumentFactory factory) {
-        assert factory != null;
+    public void register(@NotNull InstrumentFactory factory) {
         factories.add(factory);
     }
 

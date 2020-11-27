@@ -6,6 +6,7 @@ import com.leocth.unweaver.v0.impl.registries.blocks.enums.InstrumentFactoryRegi
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
@@ -22,7 +23,7 @@ public interface InstrumentFactoryRegistry {
     /**
      * Registers a {@link InstrumentFactory}.
      */
-    void register(InstrumentFactory factory);
+    void register(@NotNull InstrumentFactory factory);
 
     /**
      * Gets an optional {@link Instrument} by iterating through the registered factories.
