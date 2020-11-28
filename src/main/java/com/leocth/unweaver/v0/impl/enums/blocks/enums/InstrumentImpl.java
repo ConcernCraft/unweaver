@@ -7,9 +7,6 @@ import net.minecraft.sound.SoundEvent;
 
 public class InstrumentImpl extends AbstractExtendedEnum<net.minecraft.block.enums.Instrument> implements Instrument {
 
-    public static final CachedVanillaFactory<net.minecraft.block.enums.Instrument, InstrumentImpl> VANILLA
-            = new CachedVanillaFactory<>(InstrumentImpl::new);
-
     private final String name;
     private final SoundEvent sound;
 
@@ -34,4 +31,5 @@ public class InstrumentImpl extends AbstractExtendedEnum<net.minecraft.block.enu
     public String asString() {
         return name;
     }
+
 }

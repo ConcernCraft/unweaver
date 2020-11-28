@@ -2,6 +2,7 @@ package com.leocth.unweaver.v0.test;
 
 import com.leocth.unweaver.v0.api.callbacks.ConsumeItemCallback;
 import com.leocth.unweaver.v0.api.containers.util.UseActionContainer;
+import com.leocth.unweaver.v0.api.enums.client.render.entity.ArmPose;
 import com.leocth.unweaver.v0.api.factories.ArmPoseFactory;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.item.Item;
@@ -16,7 +17,7 @@ public class TestItem extends Item implements UseActionContainer {
 
     @Override
     public @Nullable ArmPoseFactory getArmPoseFactory() {
-        return (player, hand, stack) -> BipedEntityModel.ArmPose.BOW_AND_ARROW;
+        return (player, hand, stack) -> ArmPose.VANILLA.get(BipedEntityModel.ArmPose.BOW_AND_ARROW);
     }
 
     @Override

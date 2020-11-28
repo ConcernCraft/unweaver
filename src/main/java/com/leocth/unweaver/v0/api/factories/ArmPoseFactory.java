@@ -1,16 +1,16 @@
 package com.leocth.unweaver.v0.api.factories;
 
+import com.leocth.unweaver.v0.api.enums.client.render.entity.ArmPose;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Hand;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Factory type that returns a {@link BipedEntityModel.ArmPose} with context.
+ * Factory type that returns a {@link ArmPose} with context.
  *
  * @author leocth
  * @since 0.1.0
@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 @FunctionalInterface
 public interface ArmPoseFactory {
 
-    @NotNull BipedEntityModel.ArmPose getArmPose(AbstractClientPlayerEntity player, Hand hand, ItemStack stack);
+    @NotNull ArmPose getArmPose(AbstractClientPlayerEntity player, Hand hand, ItemStack stack);
 
     /**
      * Creates a new {@link ArmPoseFactory} with a fixed and constant arm pose regardless of context.
@@ -27,7 +27,7 @@ public interface ArmPoseFactory {
      * @param armPose the arm pose
      */
     @Contract("_ -> new")
-    static ArmPoseFactory fixed(@NotNull BipedEntityModel.ArmPose armPose) {
+    static ArmPoseFactory fixed(@NotNull ArmPose armPose) {
         return (player, hand, stack) -> armPose;
     }
 
@@ -39,7 +39,7 @@ public interface ArmPoseFactory {
      * @param otherwise the arm pose to use when <em>not</em> using the item
      */
     @Contract("_, _ -> new")
-    static ArmPoseFactory whenUsing(@NotNull BipedEntityModel.ArmPose armPose, @NotNull BipedEntityModel.ArmPose otherwise) {
+    static ArmPoseFactory whenUsing(@NotNull ArmPose armPose, @NotNull ArmPose otherwise) {
         return (player, hand, stack) -> isUsingItem(player, hand) ? armPose : otherwise;
     }
 

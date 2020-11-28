@@ -7,7 +7,7 @@ import net.minecraft.util.Identifier;
  */
 public final class Ids {
 
-    public static String MODID = "unweaver";
+    public static String MODID = "unweaver-api";
 
     public static Identifier vanilla(String path) { return new Identifier(path); }
     public static Identifier unweaver(String path) { return new Identifier(MODID, path); }

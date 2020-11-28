@@ -11,7 +11,8 @@
     ],
     "client": [
         "client.PlayerEntityRendererMixin",
-        "client.SoundSystemMixin"
+        "client.SoundSystemMixin",
+        "client.BipedEntityModelMixin"
     ],
     "injectors": {
         "defaultRequire": 1

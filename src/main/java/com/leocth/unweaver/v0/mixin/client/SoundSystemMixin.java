@@ -1,11 +1,14 @@
 package com.leocth.unweaver.v0.mixin.client;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.sound.SoundSystem;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 // thanks ytg!
+@Environment(EnvType.CLIENT)
 @Mixin(SoundSystem.class)
 public class SoundSystemMixin {
     // double modifyargs to maintain max compat
