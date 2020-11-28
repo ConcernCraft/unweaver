@@ -17,27 +17,27 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Environment(EnvType.CLIENT)
 @Mixin(BipedEntityModel.class)
 public abstract class BipedEntityModelMixin<T extends LivingEntity> extends AnimalModel<T> implements ModelWithArms, ModelWithHead, BipedEntityModelTrait {
-    private ArmPose leftArmPose;
-    private ArmPose rightArmPose;
+    private ArmPose customLeftArmPose;
+    private ArmPose customRightArmPose;
 
     @Override
     public ArmPose getLeftArmPose() {
-        return leftArmPose;
+        return customLeftArmPose;
     }
 
     @Override
     public void setLeftArmPose(ArmPose pose) {
-        this.leftArmPose = pose;
+        this.customLeftArmPose = pose;
     }
 
     @Override
     public ArmPose getRightArmPose() {
-        return rightArmPose;
+        return customRightArmPose;
     }
 
     @Override
     public void setRightArmPose(ArmPose pose) {
-        this.rightArmPose = pose;
+        this.customRightArmPose = pose;
     }
 
     @Inject(
@@ -48,8 +48,8 @@ public abstract class BipedEntityModelMixin<T extends LivingEntity> extends Anim
     )
     @SuppressWarnings({"unchecked", "ConstantConditions"})
     private void setRightArmPose(T livingEntity, CallbackInfo ci) {
-        if (rightArmPose != null && rightArmPose.isCustom()) {
-            rightArmPose.setRightArmAngles((BipedEntityModel<T>)(Object)this, livingEntity);
+        if (customRightArmPose != null && customRightArmPose.isCustom()) {
+            customRightArmPose.setRightArmAngles((BipedEntityModel<T>)(Object)this, livingEntity);
             ci.cancel();
         }
     }
@@ -62,8 +62,8 @@ public abstract class BipedEntityModelMixin<T extends LivingEntity> extends Anim
     )
     @SuppressWarnings({"unchecked", "ConstantConditions"})
     private void setLeftArmPose(T livingEntity, CallbackInfo ci) {
-        if (leftArmPose != null && leftArmPose.isCustom()) {
-            leftArmPose.setRightArmAngles((BipedEntityModel<T>)(Object)this, livingEntity);
+        if (customLeftArmPose != null && customLeftArmPose.isCustom()) {
+            customLeftArmPose.setRightArmAngles((BipedEntityModel<T>)(Object)this, livingEntity);
             ci.cancel();
         }
     }
