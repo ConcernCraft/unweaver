@@ -35,18 +35,20 @@ public class ArmPoseImpl extends AbstractExtendedEnum<BipedEntityModel.ArmPose> 
 
     @Override
     public <T extends LivingEntity> void setLeftArmAngles(BipedEntityModel<T> model, T entity) {
-        leftArmAnglesSetter.setAngles(model, entity);
+        if (leftArmAnglesSetter != null)
+            leftArmAnglesSetter.setAngles(model, entity);
     }
 
     @Override
     public <T extends LivingEntity> void setRightArmAngles(BipedEntityModel<T> model, T entity) {
-        rightArmAnglesSetter.setAngles(model, entity);
+        if (rightArmAnglesSetter != null)
+            rightArmAnglesSetter.setAngles(model, entity);
     }
 
     @Nullable
     @Override
     public BipedEntityModel.ArmPose getVanilla() {
-        return null;
+        return vanilla;
     }
 
     public static class Builder implements ArmPose.Builder {

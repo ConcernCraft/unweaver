@@ -27,6 +27,10 @@ public interface ArmPose extends ExtendedEnum<BipedEntityModel.ArmPose> {
         Builder rightArmAngles(ArmAngleSetter setter);
 
         ArmPose build();
+
+        static Builder create() {
+            return new ArmPoseImpl.Builder();
+        }
     }
 
     interface ArmAngleSetter {

@@ -58,7 +58,6 @@ public abstract class PlayerEntityRendererMixin {
             model.setRightArmPose(offArmPose);
             model.setLeftArmPose(mainArmPose);
         }
-        ci.cancel();
     }
 
     private static ArmPose getArmPose(AbstractClientPlayerEntity player, Hand hand) {

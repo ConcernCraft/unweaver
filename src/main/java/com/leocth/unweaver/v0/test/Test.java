@@ -20,7 +20,6 @@ public class Test implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
         Registry.register(Registry.ITEM, Ids.unweaver("test_item"), new TestItem(new Item.Settings().food(FoodComponents.POTATO)));
 
         InstrumentFactoryRegistry.INSTANCE.register((state, world, pos) -> {

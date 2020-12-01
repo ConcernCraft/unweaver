@@ -55,15 +55,15 @@ public abstract class BipedEntityModelMixin<T extends LivingEntity> extends Anim
     }
 
     @Inject(
-            method = "method_30155",
-            at = @At("HEAD"),
-            require = 0,
-            cancellable = true
+        method = "method_30155",
+        at = @At("HEAD"),
+        require = 0,
+        cancellable = true
     )
     @SuppressWarnings({"unchecked", "ConstantConditions"})
     private void setLeftArmPose(T livingEntity, CallbackInfo ci) {
         if (customLeftArmPose != null && customLeftArmPose.isCustom()) {
-            customLeftArmPose.setRightArmAngles((BipedEntityModel<T>)(Object)this, livingEntity);
+            customLeftArmPose.setLeftArmAngles((BipedEntityModel<T>)(Object)this, livingEntity);
             ci.cancel();
         }
     }
