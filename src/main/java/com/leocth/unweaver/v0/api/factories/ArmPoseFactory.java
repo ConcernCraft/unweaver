@@ -19,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
 @FunctionalInterface
 public interface ArmPoseFactory {
 
-    @NotNull ArmPose getArmPose(AbstractClientPlayerEntity player, Hand hand, ItemStack stack);
+    @NotNull ArmPose getArmPose(AbstractClientPlayerEntity player, Hand hand);
 
     /**
      * Creates a new {@link ArmPoseFactory} with a fixed and constant arm pose regardless of context.
@@ -28,7 +28,7 @@ public interface ArmPoseFactory {
      */
     @Contract("_ -> new")
     static ArmPoseFactory fixed(@NotNull ArmPose armPose) {
-        return (player, hand, stack) -> armPose;
+        return (player, hand) -> armPose;
     }
 
     /**
@@ -40,7 +40,7 @@ public interface ArmPoseFactory {
      */
     @Contract("_, _ -> new")
     static ArmPoseFactory whenUsing(@NotNull ArmPose armPose, @NotNull ArmPose otherwise) {
-        return (player, hand, stack) -> isUsingItem(player, hand) ? armPose : otherwise;
+        return (player, hand) -> isUsingItem(player, hand) ? armPose : otherwise;
     }
 
     /**
