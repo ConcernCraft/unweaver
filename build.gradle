@@ -1,42 +1,25 @@
 plugins {
     id 'fabric-loom' version '0.5-SNAPSHOT' apply false
-    //id 'maven-publish'
+    id 'maven-publish'
 }
 
+group = project.maven_group
 
-subprojects {
+allprojects {
     apply plugin: 'fabric-loom'
+    apply plugin: 'maven-publish'
 
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 
     archivesBaseName = project.name
     version = project.mod_version
-    group = "${project.maven_group}.${project.archives_base_name}"
-
-    repositories {
-        maven {
-            name = "Ladysnake Libs"
-            url = "https://dl.bintray.com/ladysnake/libs"
-        }
-    }
-
-    def cardinalComponents = ["base", "world", "level"]
 
     dependencies {
-        //to change the versions see the gradle.properties file
         minecraft "com.mojang:minecraft:$minecraft_version"
         mappings "net.fabricmc:yarn:$yarn_mappings:v2"
         modImplementation "net.fabricmc:fabric-loader:$loader_version"
         modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_version"
-
-        for (comp in cardinalComponents) {
-            modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-$comp:3.0.0-nightly.20w46a"
-            include "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-$comp:3.0.0-nightly.20w46a"
-        }
-
-        // PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
-        // You may need to force-disable transitiveness on them.
     }
 
     processResources {
@@ -52,16 +35,10 @@ subprojects {
         }
     }
 
-// ensure that the encoding is set to UTF-8, no matter what the system default is
-// this fixes some edge cases with special characters not displaying correctly
-// see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
     tasks.withType(JavaCompile) {
         options.encoding = "UTF-8"
     }
 
-    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-    // if it is present.
-    // If you remove this task, sources will not be generated.
     task sourcesJar(type: Jar, dependsOn: classes) {
         classifier = "sources"
         from sourceSets.main.allSource
@@ -72,7 +49,19 @@ subprojects {
     }
 }
 
-/*
+subprojects {
+    group = "${project.maven_group}.${project.archives_base_name}"
+}
+
+dependencies {
+    afterEvaluate {
+        subprojects.each {
+            compile project(path: ":${it.name}")
+            include project("${it.name}:")
+        }
+    }
+}
+
 // configure the maven publication
 publishing {
     publications {
@@ -93,4 +82,3 @@ publishing {
         // mavenLocal()
     }
 }
- */

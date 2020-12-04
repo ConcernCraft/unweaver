@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "id": "unweaver-api",
+  "version": "${version}",
+  "name": "Unweaver API",
+  "description": "Thing that removes, modifies and circumvents hardcode",
+  "authors": [
+    "leocth"
+  ],
+  "contact": {},
+  "license": "LGPL-3.0",
+  "environment": "*",
+  "depends": {
+    "fabricloader": ">=0.10.8",
+    "minecraft": "1.17.*"
+  }
+}
