@@ -41,7 +41,7 @@ public abstract class BipedEntityModelMixin<T extends LivingEntity> extends Anim
     }
 
     @Inject(
-        method = "method_30154",
+        method = "positionRightArm",
         at = @At("HEAD"),
         require = 0,
         cancellable = true
@@ -55,7 +55,7 @@ public abstract class BipedEntityModelMixin<T extends LivingEntity> extends Anim
     }
 
     @Inject(
-        method = "method_30155",
+        method = "positionLeftArm",
         at = @At("HEAD"),
         require = 0,
         cancellable = true

@@ -1,6 +1,5 @@
 plugins {
     id 'fabric-loom' version '0.5-SNAPSHOT' apply false
-    id 'maven-publish'
 }
 
 group = project.maven_group
@@ -15,6 +14,13 @@ allprojects {
     archivesBaseName = project.name
     version = project.mod_version
 
+    sourceSets {
+        testmod {
+            compileClasspath += main.compileClasspath
+            runtimeClasspath += main.runtimeClasspath
+        }
+    }
+
     dependencies {
         minecraft "com.mojang:minecraft:$minecraft_version"
         mappings "net.fabricmc:yarn:$yarn_mappings:v2"
@@ -22,16 +28,18 @@ allprojects {
         modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_version"
     }
 
-    processResources {
-        inputs.property "version", project.version
+    afterEvaluate {
+        processResources {
+            inputs.property "version", project.version
 
-        from(sourceSets.main.resources.srcDirs) {
-            include "fabric.mod.json"
-            expand "version": project.version
-        }
+            from(sourceSets.main.resources.srcDirs) {
+                include "fabric.mod.json"
+                expand "version": project.version
+            }
 
-        from(sourceSets.main.resources.srcDirs) {
-            exclude "fabric.mod.json"
+            from(sourceSets.main.resources.srcDirs) {
+                exclude "fabric.mod.json"
+            }
         }
     }
 
@@ -49,8 +57,21 @@ allprojects {
     }
 }
 
+sourceSets {
+    testmod
+}
+
 subprojects {
     group = "${project.maven_group}.${project.archives_base_name}"
+
+    dependencies {
+        testmodCompile sourceSets.main.output
+    }
+}
+
+subprojects.each {
+    compileOnly project(":${it.path}")
+    remapJar.dependsOn("${it.path}:remapJar")
 }
 
 dependencies {
@@ -58,27 +79,9 @@ dependencies {
         subprojects.each {
             compile project(path: ":${it.name}")
             include project("${it.name}:")
+
+            testmodCompile project("${it.name}:").sourceSets.testmod.output
         }
     }
 }
 
-// configure the maven publication
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            // add all the jars that should be included when publishing to maven
-            artifact(remapJar) {
-                builtBy remapJar
-            }
-            artifact(sourcesJar) {
-                builtBy remapSourcesJar
-            }
-        }
-    }
-
-    // select the repositories you want to publish to
-    repositories {
-        // uncomment to publish to the local maven
-        // mavenLocal()
-    }
-}

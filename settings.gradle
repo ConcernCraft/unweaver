@@ -11,3 +11,4 @@ pluginManagement {
 include 'unweaver-api-base'
 include 'unweaver-api-instruments-v0'
 include 'unweaver-api-useactions-v0'
+include 'unweaver-api-sculks-v0'

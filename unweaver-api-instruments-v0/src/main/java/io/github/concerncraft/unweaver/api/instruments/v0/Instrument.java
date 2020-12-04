@@ -5,6 +5,7 @@ import io.github.concerncraft.unweaver.api.enums.VanillaEnumFactory;
 import io.github.concerncraft.unweaver.impl.enums.CachedVanillaEnumFactory;
 import io.github.concerncraft.unweaver.impl.instruments.v0.InstrumentImpl;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.StringIdentifiable;
 
 /**
@@ -20,9 +21,16 @@ public interface Instrument extends ExtendedEnum<net.minecraft.block.enums.Instr
     VanillaEnumFactory<net.minecraft.block.enums.Instrument, Instrument> VANILLA
             = new CachedVanillaEnumFactory<>(InstrumentImpl::new);
 
+    Identifier getId();
+
     SoundEvent getSound();
 
-    static Instrument create(String id, SoundEvent sound) {
+    @Override
+    default String asString() {
+        return getId().toString();
+    }
+
+    static Instrument create(Identifier id, SoundEvent sound) {
         return new InstrumentImpl(id, sound);
     }
 }

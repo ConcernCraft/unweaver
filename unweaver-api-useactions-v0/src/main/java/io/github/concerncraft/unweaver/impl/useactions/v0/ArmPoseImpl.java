@@ -21,7 +21,7 @@ public class ArmPoseImpl extends AbstractExtendedEnum<BipedEntityModel.ArmPose> 
 
     public ArmPoseImpl(BipedEntityModel.ArmPose vanilla) {
         super(vanilla);
-        this.requiresBothArms = vanilla.method_30156();
+        this.requiresBothArms = vanilla.isTwoHanded();
         this.leftArmAnglesSetter = null;
         this.rightArmAnglesSetter = null;
     }
