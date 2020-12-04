@@ -8,3 +8,6 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+include 'unweaver-api-base'
+include 'unweaver-api-instruments-v0'
+include 'unweaver-api-useactions-v0'

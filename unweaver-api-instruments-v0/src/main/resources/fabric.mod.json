@@ -1,0 +1,21 @@
+{
+    "schemaVersion": 1,
+    "id": "unweaver-api-instruments-v0",
+    "version": "${version}",
+    "name": "Unweaver API: Instruments v0",
+    "description": "API for Unweaver that adds support for custom instruments for note blocks. Requires Base API",
+    "authors": [
+        "leocth"
+    ],
+    "mixins": [
+        "instruments-v0.mixins.json"
+    ],
+    "contact": {},
+    "license": "LGPL-3.0",
+    "environment": "*",
+    "depends": {
+        "fabricloader": ">=0.10.8",
+        "minecraft": "1.17.*",
+        "unweaver-api-base": "*"
+    }
+}
