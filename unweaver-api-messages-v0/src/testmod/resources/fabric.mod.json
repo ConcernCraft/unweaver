@@ -1,0 +1,24 @@
+{
+    "schemaVersion": 1,
+    "id": "unweaver-api-sculks-v0-testmod",
+    "version": "${version}",
+    "name": "Unweaver API: Sculks v0 (Test)",
+    "description": "Test mod for the sculk module",
+    "authors": [
+        "leocth"
+    ],
+    "entrypoints": {
+        "main": [
+            "io.github.concerncraft.unweaver.test.sculks.v0.MessagesTest::init"
+        ]
+    },
+    "contact": {},
+    "license": "LGPL-3.0",
+    "environment": "*",
+    "depends": {
+        "fabricloader": ">=0.10.8",
+        "minecraft": "1.17.*",
+        "unweaver-api-base": "*",
+        "unweaver-api-sculks-v0": "*"
+    }
+}

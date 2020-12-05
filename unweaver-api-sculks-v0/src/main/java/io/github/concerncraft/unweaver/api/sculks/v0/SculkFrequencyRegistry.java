@@ -5,6 +5,12 @@ import net.minecraft.class_5712;
 
 import java.util.OptionalInt;
 
+/**
+ * Registry for custom frequency values for sculk sensor events.
+ *
+ * @author leocth
+ * @version 0.2.0
+ */
 public interface SculkFrequencyRegistry {
 
     SculkFrequencyRegistry INSTANCE = new SculkFrequencyRegistryImpl();
