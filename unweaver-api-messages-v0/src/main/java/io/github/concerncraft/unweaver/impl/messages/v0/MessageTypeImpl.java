@@ -28,7 +28,7 @@ public class MessageTypeImpl extends AbstractExtendedEnum<net.minecraft.network.
         }
     }
 
-    private MessageTypeImpl(net.minecraft.network.MessageType vanilla) {
+    public MessageTypeImpl(net.minecraft.network.MessageType vanilla) {
         super(vanilla);
         this.chat = vanilla == net.minecraft.network.MessageType.CHAT;
         this.interruptsNarration = vanilla.interruptsNarration();

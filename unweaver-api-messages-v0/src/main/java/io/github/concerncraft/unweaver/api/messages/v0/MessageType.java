@@ -1,6 +1,9 @@
 package io.github.concerncraft.unweaver.api.messages.v0;
 
 import io.github.concerncraft.unweaver.api.enums.ExtendedEnum;
+import io.github.concerncraft.unweaver.api.enums.VanillaEnumFactory;
+import io.github.concerncraft.unweaver.impl.enums.CachedVanillaEnumFactory;
+import io.github.concerncraft.unweaver.impl.messages.v0.MessageTypeImpl;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -19,6 +22,9 @@ import java.util.UUID;
  * @version 0.3.0
  */
 public interface MessageType extends ExtendedEnum<net.minecraft.network.MessageType> {
+
+    VanillaEnumFactory<net.minecraft.network.MessageType, MessageType> VANILLA
+            = new CachedVanillaEnumFactory<>(MessageTypeImpl::new);
 
     /**
      * @return whether messages of this type are treated as chat.

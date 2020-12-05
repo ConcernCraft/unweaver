@@ -12,7 +12,7 @@ public class ArmPoseImpl extends AbstractExtendedEnum<BipedEntityModel.ArmPose> 
     private final ArmAngleSetter leftArmAnglesSetter;
     private final ArmAngleSetter rightArmAnglesSetter;
 
-    public ArmPoseImpl(Builder builder) {
+    private ArmPoseImpl(Builder builder) {
         super(null);
         this.requiresBothArms = builder.requiresBothArms;
         this.leftArmAnglesSetter = builder.leftArmAnglesSetter;
