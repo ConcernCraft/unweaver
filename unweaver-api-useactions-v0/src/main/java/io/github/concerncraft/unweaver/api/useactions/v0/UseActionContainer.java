@@ -1,5 +1,7 @@
 package io.github.concerncraft.unweaver.api.useactions.v0;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.item.Item;
 import org.jetbrains.annotations.Nullable;
 
@@ -12,6 +14,7 @@ import org.jetbrains.annotations.Nullable;
  */
 public interface UseActionContainer {
 
+    @Environment(EnvType.CLIENT)
     @Nullable ArmPoseFactory getArmPoseFactory();
 
     @Nullable ConsumptionEffectSpawner getConsumptionEffectSpawner();

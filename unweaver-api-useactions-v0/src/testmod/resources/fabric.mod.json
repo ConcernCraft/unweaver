@@ -1,0 +1,23 @@
+{
+    "schemaVersion": 1,
+    "id": "unweaver-api-useactions-v0-testmod",
+    "version": "${version}",
+    "name": "Unweaver API: Use Actions v0 (Test)",
+    "description": "API for Unweaver that adds support for custom use actions for items. Requires Base API",
+    "authors": [
+        "leocth"
+    ],
+    "entrypoints": {
+        "main": [
+            "io.github.concerncraft.unweaver.test.useactions.v0.UseActionsTest::init"
+        ]
+    },
+    "contact": {},
+    "license": "LGPL-3.0",
+    "environment": "*",
+    "depends": {
+        "fabricloader": ">=0.10.8",
+        "minecraft": "1.17.*",
+        "unweaver-api-base": "*"
+    }
+}

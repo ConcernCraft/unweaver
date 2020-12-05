@@ -70,7 +70,6 @@ subprojects {
 }
 
 subprojects.each {
-    compileOnly project(":${it.path}")
     remapJar.dependsOn("${it.path}:remapJar")
 }
 

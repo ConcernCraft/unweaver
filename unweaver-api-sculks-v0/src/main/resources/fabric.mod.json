@@ -1,11 +1,14 @@
 {
     "schemaVersion": 1,
-    "id": "unweaver-api-base",
+    "id": "unweaver-api-sculks-v0",
     "version": "${version}",
-    "name": "Unweaver API Base",
-    "description": "Base API for Unweaver.",
+    "name": "Unweaver API: Sculks v0",
+    "description": "API for Unweaver that adds support for custom frequencies for sculk sensor events. Requires Base API",
     "authors": [
         "leocth"
+    ],
+    "mixins": [
+        "sculks-v0.mixins.json"
     ],
     "contact": {},
     "license": "LGPL-3.0",

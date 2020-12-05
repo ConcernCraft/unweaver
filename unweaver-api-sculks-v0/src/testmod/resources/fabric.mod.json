@@ -1,15 +1,15 @@
 {
     "schemaVersion": 1,
-    "id": "unweaver-api-instruments-v0-testmod",
+    "id": "unweaver-api-sculks-v0-testmod",
     "version": "${version}",
-    "name": "Unweaver API: Instruments v0 (Test)",
-    "description": "Test mod for the instrument module",
+    "name": "Unweaver API: Sculks v0 (Test)",
+    "description": "Test mod for the sculk module",
     "authors": [
         "leocth"
     ],
     "entrypoints": {
         "main": [
-            "io.github.concerncraft.unweaver.test.instruments.v0.InstrumentTest::init"
+            "io.github.concerncraft.unweaver.test.sculks.v0.SculkTest::init"
         ]
     },
     "contact": {},
@@ -19,6 +19,6 @@
         "fabricloader": ">=0.10.8",
         "minecraft": "1.17.*",
         "unweaver-api-base": "*",
-        "unweaver-api-instruments-v0": "*"
+        "unweaver-api-sculks-v0": "*"
     }
 }
