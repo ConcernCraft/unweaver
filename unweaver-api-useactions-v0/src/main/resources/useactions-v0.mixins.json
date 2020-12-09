@@ -4,9 +4,11 @@
     "package": "io.github.concerncraft.unweaver.mixin.useactions.v0",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-        "BipedEntityModelMixin",
-        "LivingEntityMixin",
-        "PlayerEntityRendererMixin"
+        "LivingEntityMixin"
+    ],
+    "client": [
+        "PlayerEntityRendererMixin",
+        "BipedEntityModelMixin"
     ],
     "injectors": {
         "defaultRequire": 1

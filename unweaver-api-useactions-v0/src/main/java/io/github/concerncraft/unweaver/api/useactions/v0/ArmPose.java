@@ -4,6 +4,7 @@ import io.github.concerncraft.unweaver.api.enums.ExtendedEnum;
 import io.github.concerncraft.unweaver.api.enums.VanillaEnumFactory;
 import io.github.concerncraft.unweaver.impl.enums.CachedVanillaEnumFactory;
 import io.github.concerncraft.unweaver.impl.useactions.v0.ArmPoseImpl;
+import io.github.concerncraft.unweaver.util.SidedUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
@@ -19,7 +20,7 @@ import net.minecraft.entity.LivingEntity;
 public interface ArmPose extends ExtendedEnum<BipedEntityModel.ArmPose> {
 
     VanillaEnumFactory<BipedEntityModel.ArmPose, ArmPose> VANILLA
-            = new CachedVanillaEnumFactory<>(ArmPoseImpl::new);
+            = new CachedVanillaEnumFactory<>(ArmPoseImpl.Vanilla::new);
 
     /**
      * Returns whether the arm pose requires both arms. If true, then any arm pose on the off hand
@@ -31,6 +32,7 @@ public interface ArmPose extends ExtendedEnum<BipedEntityModel.ArmPose> {
     <T extends LivingEntity> void setLeftArmAngles(BipedEntityModel<T> model, T entity);
     <T extends LivingEntity> void setRightArmAngles(BipedEntityModel<T> model, T entity);
 
+    @Environment(EnvType.CLIENT)
     interface Builder {
         Builder requiresBothArms();
 
@@ -44,6 +46,7 @@ public interface ArmPose extends ExtendedEnum<BipedEntityModel.ArmPose> {
         }
     }
 
+    @Environment(EnvType.CLIENT)
     interface ArmAngleSetter {
         <T extends LivingEntity> void setAngles(BipedEntityModel<T> model, T entity);
     }

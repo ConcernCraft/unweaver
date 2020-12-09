@@ -1,6 +1,7 @@
 package io.github.concerncraft.unweaver.impl.sculks.v0;
 
 import io.github.concerncraft.unweaver.api.sculks.v0.SculkFrequencyRegistry;
+import it.unimi.dsi.fastutil.objects.Reference2IntMap;
 import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
 import net.minecraft.class_5712;
 
@@ -8,7 +9,7 @@ import java.util.OptionalInt;
 
 public class SculkFrequencyRegistryImpl implements SculkFrequencyRegistry {
 
-    private final Reference2IntOpenHashMap<class_5712> vibrationToFrequency
+    private final Reference2IntMap<class_5712> vibrationToFrequency
             = new Reference2IntOpenHashMap<>();
 
     @Override

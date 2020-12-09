@@ -7,4 +7,5 @@ public final class Ids {
 
     public static Identifier vanilla(String path) { return new Identifier(path); }
     public static Identifier unweaver(String path) { return new Identifier(MODID, path); }
+    public static Identifier module(String module, String path) { return new Identifier(MODID, module + "/" + path); }
 }

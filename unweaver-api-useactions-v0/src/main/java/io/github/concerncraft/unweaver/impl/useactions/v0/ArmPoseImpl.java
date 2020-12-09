@@ -6,41 +6,23 @@ import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.entity.LivingEntity;
 import org.jetbrains.annotations.Nullable;
 
-public class ArmPoseImpl extends AbstractExtendedEnum<BipedEntityModel.ArmPose> implements ArmPose {
+public abstract class ArmPoseImpl extends AbstractExtendedEnum<BipedEntityModel.ArmPose> implements ArmPose {
 
     private final boolean requiresBothArms;
-    private final ArmAngleSetter leftArmAnglesSetter;
-    private final ArmAngleSetter rightArmAnglesSetter;
 
     private ArmPoseImpl(Builder builder) {
         super(null);
         this.requiresBothArms = builder.requiresBothArms;
-        this.leftArmAnglesSetter = builder.leftArmAnglesSetter;
-        this.rightArmAnglesSetter = builder.rightArmAnglesSetter;
     }
 
-    public ArmPoseImpl(BipedEntityModel.ArmPose vanilla) {
+    protected ArmPoseImpl(BipedEntityModel.ArmPose vanilla) {
         super(vanilla);
         this.requiresBothArms = vanilla.isTwoHanded();
-        this.leftArmAnglesSetter = null;
-        this.rightArmAnglesSetter = null;
     }
 
     @Override
     public boolean requiresBothArms() {
         return requiresBothArms;
-    }
-
-    @Override
-    public <T extends LivingEntity> void setLeftArmAngles(BipedEntityModel<T> model, T entity) {
-        if (leftArmAnglesSetter != null)
-            leftArmAnglesSetter.setAngles(model, entity);
-    }
-
-    @Override
-    public <T extends LivingEntity> void setRightArmAngles(BipedEntityModel<T> model, T entity) {
-        if (rightArmAnglesSetter != null)
-            rightArmAnglesSetter.setAngles(model, entity);
     }
 
     @Nullable
@@ -75,7 +57,37 @@ public class ArmPoseImpl extends AbstractExtendedEnum<BipedEntityModel.ArmPose> 
 
         @Override
         public ArmPose build() {
-            return new ArmPoseImpl(this);
+            return new ArmPoseImpl(this) {
+                @Override
+                public <T extends LivingEntity> void setLeftArmAngles(BipedEntityModel<T> model, T entity) {
+                    if (leftArmAnglesSetter != null)
+                        leftArmAnglesSetter.setAngles(model, entity);
+                }
+                @Override
+                public <T extends LivingEntity> void setRightArmAngles(BipedEntityModel<T> model, T entity) {
+                    if (rightArmAnglesSetter != null)
+                        rightArmAnglesSetter.setAngles(model, entity);
+                }
+            };
         }
+
+    }
+
+    public static class Vanilla extends ArmPoseImpl {
+
+        public Vanilla(BipedEntityModel.ArmPose vanilla) {
+            super(vanilla);
+        }
+
+        @Override
+        public <T extends LivingEntity> void setLeftArmAngles(BipedEntityModel<T> model, T entity) {
+
+        }
+
+        @Override
+        public <T extends LivingEntity> void setRightArmAngles(BipedEntityModel<T> model, T entity) {
+
+        }
+
     }
 }

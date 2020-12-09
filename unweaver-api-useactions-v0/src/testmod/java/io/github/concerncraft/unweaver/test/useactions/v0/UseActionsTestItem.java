@@ -13,12 +13,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class UseActionsTestItem extends Item implements UseActionContainer {
 
-    public static final ArmPose USE_ARMPOSE
-            = ArmPose.Builder.create()
-                .leftArmAngles(UseActionsTestItem::setLeftArmAngles)
-                .rightArmAngles(UseActionsTestItem::setRightArmAngles)
-                .build();
-
     public UseActionsTestItem(Settings settings) {
         super(settings);
     }
@@ -26,7 +20,10 @@ public class UseActionsTestItem extends Item implements UseActionContainer {
     @Override
     @Environment(EnvType.CLIENT)
     public @Nullable ArmPoseFactory getArmPoseFactory() {
-        return ArmPoseFactory.fixed(USE_ARMPOSE);
+        return ArmPoseFactory.fixed(ArmPose.Builder.create()
+                .leftArmAngles(UseActionsTestItem::setLeftArmAngles)
+                .rightArmAngles(UseActionsTestItem::setRightArmAngles)
+                .build());
     }
 
     @Override
