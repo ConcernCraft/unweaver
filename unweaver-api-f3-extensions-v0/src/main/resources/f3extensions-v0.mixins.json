@@ -1,0 +1,8 @@
+{
+    "required": true,
+    "parent": "base-ext.mixins.json",
+    "package": "io.github.concerncraft.unweaver.mixin.f3extensions.v0",
+    "mixins": [
+        "KeyboardMixin"
+    ]
+}

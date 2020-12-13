@@ -38,8 +38,4 @@ public class SwitchInsnPoint extends InjectionPoint {
         }
         return found;
     }
-
-    static {
-        InjectionPoint.register(SwitchInsnPoint.class);
-    }
 }
