@@ -1,4 +1,5 @@
 ## Unweaver
+[![](https://jitpack.io/v/ConcernCraft/unweaver.svg)](https://jitpack.io/#ConcernCraft/unweaver)
 NOTE: Unweaver is still in *early* development! It is largely incomplete and compatibility with other mods is **not yet** tested!
 Use with caution!
 
