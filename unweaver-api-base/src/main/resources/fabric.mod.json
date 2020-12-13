@@ -3,7 +3,7 @@
     "id": "unweaver-api-base",
     "version": "${version}",
     "name": "Unweaver API Base",
-    "description": "Base API for Unweaver.",
+    "description": "Base API of Unweaver.",
     "authors": [
         "leocth"
     ],
