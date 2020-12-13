@@ -22,7 +22,8 @@ public class SculkSensorBlockEntityMixin {
         method = "method_32969",
         at = @At(
             value = "INVOKE",
-            target = "Lit/unimi/dsi/fastutil/objects/Object2IntMap;getInt(Ljava/lang/Object;)I"
+            target = "Lit/unimi/dsi/fastutil/objects/Object2IntMap;getInt(Ljava/lang/Object;)I",
+            remap = false
         )
     )
     private int modifyLastVibrationFrequency(Object2IntMap<class_5712> object2IntMap, Object key) {

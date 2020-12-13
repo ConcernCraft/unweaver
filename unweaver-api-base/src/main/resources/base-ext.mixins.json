@@ -1,6 +1,7 @@
 {
     "minVersion": "0.8",
     "compatibilityLevel": "JAVA_8",
+    "package": "io.github.concerncraft.unweaver.mixin",
     "injectors": {
         "injectionPoints": [
             "io.github.concerncraft.unweaver.mixinext.SwitchInsnPoint"

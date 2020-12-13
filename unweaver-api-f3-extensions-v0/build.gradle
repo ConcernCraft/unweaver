@@ -1,0 +1,4 @@
+dependencies {
+    compile project(":unweaver-api-base")
+    modImplementation fabricApi.module("fabric-api-base", rootProject.fabric_version)
+}
