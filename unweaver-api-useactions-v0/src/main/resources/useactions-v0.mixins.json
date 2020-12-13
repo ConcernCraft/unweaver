@@ -1,16 +1,12 @@
 {
     "required": true,
-    "minVersion": "0.8",
+    "parent": "base-ext.mixins.json",
     "package": "io.github.concerncraft.unweaver.mixin.useactions.v0",
-    "compatibilityLevel": "JAVA_8",
     "mixins": [
         "LivingEntityMixin"
     ],
     "client": [
         "PlayerEntityRendererMixin",
         "BipedEntityModelMixin"
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    }
+    ]
 }
