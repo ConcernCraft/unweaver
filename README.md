@@ -1,3 +1,5 @@
+# No longer in development - please seek for something else instead!
+
 ## Unweaver
 [![](https://jitpack.io/v/ConcernCraft/unweaver.svg)](https://jitpack.io/#ConcernCraft/unweaver)
 
